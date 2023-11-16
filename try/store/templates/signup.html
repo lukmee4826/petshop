@@ -1,0 +1,19 @@
+{% extends 'layout.html'%}
+{% block content%}
+{% load crispy_forms_tags%}
+<div class = "px-5  "style="padx=20%">
+    <div class = "px-5"style="padx=20%">
+        <div class = "px-5"style="padx=20%">
+            <div class = "px-5 "style="padx=20%">
+                <div class = "px-5 "style="padx=20%">
+                    
+<div class="container my-mb-4 py-4 rounded px-5 shadow">
+    <center><img class="rounded-circle"width="100" src="https://user-images.githubusercontent.com/61301090/282684613-b755328d-f52f-46ea-a19f-5b46842487d0.png" > </img></center>
+    <h2 align = 'center'>แบบฟอร์มลงทะเบียน</h2>
+    <form method="POST">
+        <p>{{form | crispy}}</p>
+        {%csrf_token%}
+        <input type="submit" class="btn btn-primary" value="Register">
+    </form>
+</div>
+{% endblock %}

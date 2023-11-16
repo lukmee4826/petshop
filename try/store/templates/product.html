@@ -1,0 +1,55 @@
+{% extends 'layout.html'%}
+{% load humanize %}
+{% block content%}
+
+{% comment %} <div class="container ">
+    <div class="col"></div>
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <div class="card mt-4 mb-3 row g-0">
+            <img class="card-img-top img-fluid col-md-4" src="{{product.image.url}}" alt="">
+            <div class="card-body col-md-8">
+              <h3 class="card-title">{{product.name}}</h3>
+              <h4>${{product.price|intcomma}}</h4>
+              <p class="card-text">{{product.description}}</p>
+              <p class="card-text">In stock : {{product.stock}}</p>
+              <!-- <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+              4.0 stars -->
+              <div class="card-footer">
+                <h3><small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small></h3>
+                {% if product.stock <= 0 %}
+                    <h2><p class ="text-danger">สินค้าหมด</p></h2>
+                {% else %}
+                    <a href="{%url 'addCart' product.id %}" class="btn btn-primary" id="addToCartButton">เพิ่มสินค้าในตะกร้า</a>
+                    <h2><p class ="text-danger">สินค้าหมด</p></h2>
+                {% endif %}
+            </div>
+            </div>
+          </div>
+  </div>
+</div> {% endcomment %}
+<div class="container py-5 my-3 text-light">.</div>
+<div class="card mb-3" style="max-width: 1200px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{product.image.url}}" class="img-fluid rounded" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}
+          <br> ${{product.price|intcomma}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <p class="card-text"><small class="text-body-secondary">In stock : {{product.stock}}</small></p>
+      </div>
+      <div class="card-footer">
+        <h3><small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small></h3>
+        {% if product.stock <= 0 %}
+            <h2><p class ="text-danger">สินค้าหมด</p></h2>
+        {% else %}
+            <a href="{%url 'addCart' product.id %}" class="btn btn-primary" id="addToCartButton">เพิ่มสินค้าในตะกร้า</a>
+        {% endif %}
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
