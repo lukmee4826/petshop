@@ -16,10 +16,22 @@ class Category(models.Model):
     
     def get_url(self):
         return reverse('product_by_category',args=[self.slug])
-    
+
+class Employee(models.Model):
+    employee_id = models.CharField(max_length=50,unique=True)
+    employee_name = models.CharField(max_length=255)
+    position = models.CharField(max_length=255)
+    email = models.EmailField(max_length=250,blank=True)
+    sex = models.CharField(max_length=255)
+    salary = models.IntegerField()
+    tel_number = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+    username = models.CharField(max_length=255)
+
 class Product(models.Model):
     name = models.CharField(max_length=255,unique=True)
-    slug = models.SlugField(max_length=255,unique=True)    
+    slug = models.SlugField(max_length=255)    
     description = models.TextField(blank=True)    
     price = models.DecimalField(max_digits=10,decimal_places=2)    
     category = models.ForeignKey(Category,on_delete=models.CASCADE)

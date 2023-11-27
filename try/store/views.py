@@ -178,7 +178,7 @@ def signupView(request):
             # จัด group
             customer_group = Group.objects.get(name = 'Customer')
             customer_group.user_set.add(signUpUser)
-
+            return redirect('signIn')
     else:
         form = signUpForm()
     return render(request,"signup.html",{'form':form})
